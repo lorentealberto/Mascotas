@@ -9,7 +9,7 @@ def main():
     screen = py.display.set_mode((SIZE))
     py.display.set_caption("Mascotas")
 
-    clear = (64, 196, 255) #Color con el que se limpiara la pantalla
+    clear = (178, 235, 242) #Color con el que se limpiara la pantalla
     exit = False #Bandera para salir
     fps = py.time.Clock() #Reloj del juego
     delta = 0 #Tiempo que dura una iteracion del bucle de juego
