@@ -1,14 +1,19 @@
 import pygame as py
 from utilidades import cargarImagen
-from configuracion import SIZE
+from configuracion import SIZE, ALTITUD_MAXIMA_NUBE
+from random import randrange
 
 class Nube(object):
-	'''Clase nube, sirve para adornar el escenario'''
+	'''Clase nube, sirve para adornar el escenario
+		Fecha: 26/04/2018
+		Autor: Alberto Escribano Lorente'''
 	
-	'''Constructor'''
+	'''Constructor: Carga la imagen y establece la posicion'''
 	def __init__(self):
 		self.imagen = cargarImagen("nube", 4)
 		self.cuerpo = py.Rect(0, 0, self.imagen.get_width(), self.imagen.get_height())
+		self.cuerpo.x = randrange(0, SIZE[0] - self.cuerpo.width) #Establece una posicion horizontal aleatoria
+		self.cuerpo.y = randrange(0, self.cuerpo.height * ALTITUD_MAXIMA_NUBE) #Establece una altura aleatoria
 	
 	'''Dibuja los graficos en la pantalla
 		pantalla: superficie donde se dibujara'''
@@ -16,8 +21,17 @@ class Nube(object):
 		pantalla.blit(self.imagen, self.cuerpo)
 	
 	'''Actualiza el elemento'''
-	def actualizar(self):
+	def actualizar(self, delta):
 		self.cuerpo.move_ip(1, 0)
+		self.comprobarBordes()
+	
+	'''Comprueba si la nube ha llegado al borde derecho. Si es asi,
+		vuelve a aparecer por el borde izquierdo. Cada vez que la
+		nube reaparece, lo hara a una altura diferente'''
+	def comprobarBordes(self):
+		if self.cuerpo.left > SIZE[0]:
+			self.cuerpo.right = 0
+			self.cuerpo.y = randrange(0, self.cuerpo.height * ALTITUD_MAXIMA_NUBE)
 		
 
 class Escenario(object):
@@ -37,5 +51,5 @@ class Escenario(object):
     '''Actualiza todos los elementos del escenario
         delta: tiempo de juego, necesario para algunas acciones. opcional'''
     def actualizar(self, delta = None):
-        self.nube.actualizar()
+        self.nube.actualizar(delta)
     
