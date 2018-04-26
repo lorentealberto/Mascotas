@@ -3,6 +3,7 @@ import os
 import io
 import zipfile
 
+'''Carga el archivo de recursos'''
 def cargarDatos():
 	archivo = zipfile.ZipFile(os.path.dirname(os.path.realpath(__file__)) + "/recursos.zip", 'r')
 	return archivo
