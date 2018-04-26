@@ -1,4 +1,6 @@
 from gato import Gato
+from escenario import Escenario
+
 class Juego(object):
     '''Clase que gestiona todos los recursos del juego
         Fecha: 25/04/2018
@@ -6,15 +8,18 @@ class Juego(object):
 
     '''Constructor, inicializa todos los elementos'''
     def __init__(self):
-        self.gato = Gato()
+		self.elementos = [Gato(), Escenario()]
 
     '''Dibuja todos los elementos
         pantalla: superficie donde se dibujaran'''
     def dibujar(self, pantalla):
-        self.gato.dibujar(pantalla)
+        for elemento in self.elementos:
+			elemento.dibujar(pantalla)
+		
 
     '''Actualiza todos los elementos
         delta: tiempo externo, necesario para algunas acciones'''
     def actualizar(self, delta):
-        self.gato.actualizar(delta)
+        for elemento in self.elementos:
+			elemento.actualizar(delta)
         
