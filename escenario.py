@@ -1,4 +1,4 @@
-import pygame as py
+from pygame import Rect
 from utilidades import cargarImagen
 from configuracion import SIZE, ALTITUD_MAXIMA_NUBE
 from random import randrange
@@ -11,7 +11,7 @@ class Nube(object):
 	'''Constructor: Carga la imagen y establece la posicion'''
 	def __init__(self):
 		self.imagen = cargarImagen("nube", 4)
-		self.cuerpo = py.Rect(0, 0, self.imagen.get_width(), self.imagen.get_height())
+		self.cuerpo = Rect(0, 0, self.imagen.get_width(), self.imagen.get_height())
 		self.cuerpo.x = randrange(0, SIZE[0] - self.cuerpo.width) #Establece una posicion horizontal aleatoria
 		self.cuerpo.y = randrange(0, self.cuerpo.height * ALTITUD_MAXIMA_NUBE) #Establece una altura aleatoria
 	
