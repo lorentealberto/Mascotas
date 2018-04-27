@@ -9,7 +9,7 @@ class Juego(object):
 
     '''Constructor, inicializa todos los elementos'''
     def __init__(self):
-		self.elementos = [Escenario(), Gato(), GestorElementos()]
+		self.elementos = [Escenario(), Gato(), Objetos()]
 
     '''Dibuja todos los elementos
         pantalla: superficie donde se dibujaran'''

@@ -57,9 +57,9 @@ class Manzana(ObjetoEscenario):
 		x: posicion horizontal donde aparecera el objeto
 		y: posicion vertical donde aparecera el objeto'''
 	def __init__(self, imagen, x, y):
-		ObjetoEscenario.__init__(imagen, x, y)
+		ObjetoEscenario.__init__(self, imagen, x, y)
 	
 	'''Actualiza la manzana
 		delta: Tiempo de juego, usado para algunas funciones'''
 	def actualizar(self, delta):
-		ObjetoEscenario.actualizar(delta)
+		ObjetoEscenario.actualizar(self, delta)
