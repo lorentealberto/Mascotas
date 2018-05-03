@@ -36,7 +36,7 @@ class ObjetoEscenario(object):
 	
 	'''Comprueba si la manzana esta en el suelo'''
 	def comprobarSuelo(self):
-		if self.cuerpo.bottom + 5 > self.suelo:
+		if self.cuerpo.bottom + self.vy + 5 > self.suelo:
 			self.cuerpo.bottom = self.suelo + 5
 			self.enSuelo = True
 	

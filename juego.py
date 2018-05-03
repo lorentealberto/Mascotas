@@ -35,6 +35,6 @@ class Juego(object):
 		self.controles.actualizar(delta)
 		self.interfaz.actualizar(delta)
 		self.escenario.actualizar(delta, self.controles)
-		self.gato.actualizar(delta, self.controles, self.objectos, self.sistemaParticulas)
+		self.gato.actualizar(delta, self.objectos, self.sistemaParticulas)
 		self.objectos.actualizar(delta, self.controles)
 		self.sistemaParticulas.actualizar(delta)

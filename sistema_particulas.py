@@ -1,5 +1,6 @@
 from configuracion import PARTICULAS_EN_EXPLOSION, VELOCIDAD_PARTICULA
 from particula import Particula
+from random import randrange
 
 class SistemaParticulas(object):
 	'''Gestor de particulas'''
