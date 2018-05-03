@@ -16,6 +16,7 @@ ANCHURA_BARRA = 10 #Anchura de la barra de la interfaz (En pixeles)
 VELOCIDAD_GATO = 2 #Velocidad del gato
 HAMBRE_MAXIMA = 100 #Valor maximo de hambre que puede tener el gato
 ESCALA_GATO = 4 #Escala de los graficos del gato
+PERDIDA_DE_ENERGIA = 10 #Cantidad de hambre que se reduce cada vez que se gasta energia
 
 #CONFIGURACION DE LAS PARTICULAS
 PARTICULAS_EN_EXPLOSION = 20 #Numero de particulas que se generaran en cada explosion
@@ -26,7 +27,8 @@ MAX_VIDA_PARTICULA = 250 #Tiempo maximo de vida que tendra una particula
 
 #CONFIGURACION DE LOS TIEMPOS
 TIEMPO_CAMBIO_OBJETIVO = 3000 #Milisegundos que tarda el gato en ir a por un nuevo objetivo
-TIEMPO_EXCREMENTO = 5000 #Milisegundos que tarda el gato en expulsar un excremento
+TIEMPO_EXCREMENTO = 10000 #Milisegundos que tarda el gato en expulsar un excremento
+TIEMPO_DESGASTE_ENERGIA = 5000 #Milisegundos que tarda en vaciarse un poco la barra de hambre
 
 #CONFIGURACION DE LOS CONTROLES
 BTNIZQ = 0 #Boton izquierdo raton

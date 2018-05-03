@@ -3,8 +3,8 @@ from random import randrange
 
 from utilidades import cargarImagen
 from temporizador import Temporizador
-from configuracion import ANCHURA, VELOCIDAD_GATO, HAMBRE_MAXIMA, ESCALA_GATO
-from configuracion import TIEMPO_CAMBIO_OBJETIVO, TIEMPO_EXCREMENTO
+from configuracion import ANCHURA, VELOCIDAD_GATO, HAMBRE_MAXIMA, ESCALA_GATO, PERDIDA_DE_ENERGIA
+from configuracion import TIEMPO_CAMBIO_OBJETIVO, TIEMPO_EXCREMENTO, TIEMPO_DESGASTE_ENERGIA
 
 class Gato(object):
 	'''Clase que representa la mascota
@@ -21,7 +21,7 @@ class Gato(object):
 						suelo - self.imagen.get_height() + 5, #POSICION Y
 						self.imagen.get_width(), #ANCHURA
 						self.imagen.get_height()) #ALTURA
-		self.hambre = 0
+		self.hambre = 100
 		self.maxHambre = HAMBRE_MAXIMA
 		
 		self.vx = 0
@@ -31,8 +31,9 @@ class Gato(object):
 		#Temporizadores
 		self.tempoObjetivo = Temporizador(TIEMPO_CAMBIO_OBJETIVO)
 		self.tempoExcremento = Temporizador(TIEMPO_EXCREMENTO)
+		self.tempoDesgasteEnergia = Temporizador(TIEMPO_DESGASTE_ENERGIA)
 		
-		self.temporizadores = [self.tempoObjetivo, self.tempoExcremento]
+		self.temporizadores = [self.tempoObjetivo, self.tempoExcremento, self.tempoDesgasteEnergia]
 
 	'''Dibuja el gato en la pantalla
 		pantalla: superficie donde se dibujara'''
@@ -50,6 +51,11 @@ class Gato(object):
 		self.irAObjetivo(objetos, sistemaParticulas)	
 		self.mover()
 		self.excretar(objetos)
+		
+		if self.tempoDesgasteEnergia.pulso:
+			self.hambre -= PERDIDA_DE_ENERGIA
+			if self.hambre < 0:
+				self.hambre = 0
 	
 	'''Expulsa un excremento cada cierto tiempo
 		objetos: Lista de objetos del escenario, donde se anadira el excremento'''
@@ -105,5 +111,8 @@ class Gato(object):
 																self.cuerpo_objetivo.y + self.cuerpo_objetivo.height / 2) #Posicion vertical
 						objetos.elementos.remove(self.objetivo) #Eliminar la comida de la lista de objetos accesibles						
 						self.hambre += 20
+						
+						if self.hambre > HAMBRE_MAXIMA:
+							self.hambre = HAMBRE_MAXIMA
 
 					self.objetivo = None #Resetear objetivo
