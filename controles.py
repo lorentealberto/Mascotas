@@ -3,7 +3,8 @@ from configuracion import BTNIZQ, BTNDER, BTNMED
 
 class Controles(object):
 	def __init__(self):
-		
+		self.msx = 0
+		self.msy = 0
 		self.raton = [False, #Boton izquierdo
 					False, #Boton derecho
 					False] #Boton del medio (Rueda)

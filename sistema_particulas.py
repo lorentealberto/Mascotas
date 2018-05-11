@@ -27,6 +27,6 @@ class SistemaParticulas(object):
 		color: Color de la particula
 		x: Posicion horizontal
 		y: Posicion vertical'''
-	def explosionParticulas(self, color, x, y):
+	def explosion(self, color, x, y):
 		for i in range(PARTICULAS_EN_EXPLOSION):
 			self.particulas.append(Particula(color, x, y, randrange(-VELOCIDAD_PARTICULA, VELOCIDAD_PARTICULA), randrange(-VELOCIDAD_PARTICULA, VELOCIDAD_PARTICULA)))

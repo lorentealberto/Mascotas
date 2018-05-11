@@ -36,5 +36,19 @@ BTNDER = 1 #Boton derecho raton
 BTNMED = 2 #Rueda raton
 
 #TIPOS DE OBJETOS
-COMIDA = 0
-EXCREMENTO = 1
+COMIDA = 0 #Comida para el gato
+EXCREMENTO = 1 #Excremento producido por el gato
+
+#MODOS DE JUEGOS
+CRIADERO = 0 #Pantalla de inicio
+MINIJUEGOS = 1 #Minijuegos
+
+#MINIJUEGOS
+CAZA_PAJAROS = 0 #Minijuego de cazar pajaro
+
+#PAJARO
+IMPULSO_PAJARO = 13 #Impulso que tendra el pajaro al aletear
+VELOCIDAD_PAJARO = 3 #Velocidad horizontal del pajaro
+MIN_CAMBIO_IMPULSO_PAJARO = 375 #Tiempo minimo que tardara el pajaro en aletear
+MAX_CAMBIO_IMPULSO_PAJARO = 500 #Tiempo maximo que tardara el pajaro en aletear 
+SUELO_PAJARO = ALTURA - 150 #Altura limite inferior que puede alcanzar el pajaro

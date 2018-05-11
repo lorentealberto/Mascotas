@@ -106,13 +106,13 @@ class Gato(object):
 					self.vx = 0 #Frenar al gato
 					if not type(self.objetivo) is Rect: #Si el objeto no era una posicion
 						#Generar explosion de particulas
-						sistemaParticulas.explosionParticulas((255, 0, 0), #Color de la particula
+						sistemaParticulas.explosion((255, 0, 0), #Color de la particula
 																self.cuerpo_objetivo.x + self.cuerpo_objetivo.width / 2, #Posicion horizontal
 																self.cuerpo_objetivo.y + self.cuerpo_objetivo.height / 2) #Posicion vertical
 						objetos.elementos.remove(self.objetivo) #Eliminar la comida de la lista de objetos accesibles						
-						self.hambre += 20
 						
-						if self.hambre > HAMBRE_MAXIMA:
+						self.hambre += 20
+						if self.hambre > HAMBRE_MAXIMA: #Limite del hambre
 							self.hambre = HAMBRE_MAXIMA
 
 					self.objetivo = None #Resetear objetivo
